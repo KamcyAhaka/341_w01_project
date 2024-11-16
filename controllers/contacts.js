@@ -10,8 +10,8 @@ const getAll = async (req, res) => {
 };
 
 const getSingle = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDatabase().db().collection('contacts').find({ _id: userId });
+  const contactId = new ObjectId(req.params.id);
+  const result = await mongodb.getDatabase().db().collection('contacts').find({ _id: contactId });
   result.toArray().then((contacts) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(contacts[0]);
@@ -37,7 +37,7 @@ const createContact = async (req, res) => {
 };
 
 const updateContact = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
+  const contactId = new ObjectId(req.params.id);
 
   const contact = {
     firstName: req.body.firstName,
@@ -51,7 +51,7 @@ const updateContact = async (req, res) => {
     .getDatabase()
     .db()
     .collection('contacts')
-    .replaceOne({ _id: userId }, contact);
+    .replaceOne({ _id: contactId }, contact);
 
   if (response.modifiedCount > 0) {
     res.status(204).send();
@@ -60,13 +60,13 @@ const updateContact = async (req, res) => {
   }
 };
 const deleteContact = async (req, res) => {
-  const userId = new ObjectId(req.params.id);
+  const contactId = new ObjectId(req.params.id);
 
   const response = await mongodb
     .getDatabase()
     .db()
     .collection('contacts')
-    .remove({ _id: userId }, true);
+    .remove({ _id: contactId }, true);
 
   if (response.deletedCount > 0) {
     res.status(204).send();
