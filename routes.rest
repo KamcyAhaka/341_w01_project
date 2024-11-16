@@ -1,9 +1,31 @@
 # LOCAL
 GET http://localhost:8080/contacts
 
-GET http://localhost:8080/contacts/672fc5a3fc13ae3f09c90f71
+GET http://localhost:8080/contacts/6738ed60fc13ae530ceee242
 
+POST http://localhost:8080/contacts HTTP/1.1
+content-type: application/json
 
+{
+  "firstName": "Ali",
+  "lastName": "Ahmed",
+  "email": "ahmedali@mail.com",
+  "favouriteColor": "brown",
+  "birthday": "06/19/2001",
+}
+
+PUT http://localhost:8080/contacts/6738ed60fc13ae530ceee242 HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Jack",
+  "email": "jackyn@gmail.com",
+  "favouriteColor": "Blue",
+  "birthday": "02/09/2003",
+}
+
+DELETE http://localhost:8080/contacts/6738ed60fc13ae530ceee245 HTTP/1.1
 
 
 
@@ -13,3 +35,27 @@ GET http://localhost:8080/contacts/672fc5a3fc13ae3f09c90f71
 GET https://w01-project.onrender.com/contacts
 
 GET https://w01-project.onrender.com/contacts/672fc5a3fc13ae3f09c90f71
+
+POST https://w01-project.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Bruce",
+  "lastName": "Wayne",
+  "email": "wayne@wayneenter.prise",
+  "favouriteColor": "green",
+  "birthday": "06/19/2000",
+}
+
+PUT https://w01-project.onrender.com/contacts/6738ed60fc13ae530ceee249 HTTP/1.1
+content-type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Jack",
+  "email": "jackyn@gmail.com",
+  "favouriteColor": "Blue",
+  "birthday": "02/09/2003",
+}
+
+DELETE https://w01-project.onrender.com/contacts/6738ed60fc13ae530ceee243 HTTP/1.1
